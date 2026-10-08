@@ -5,7 +5,6 @@ public class Segitiga {
 
     public static void tampilkanHeader() {
         try {
-            // Membersihkan layar konsol jika dijalankan langsung di CMD Windows
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (Exception e) {
             System.out.println("\n");
@@ -56,7 +55,7 @@ public class Segitiga {
                 int[] sides = {a, b, c};
                 Arrays.sort(sides);
 
-                int x = sides[0]; // Sisi terkecil
+                int x = sides[0]; // Sisi kecil
                 int y = sides[1]; // Sisi tengah
                 int z = sides[2]; // Sisi terbesar
 
@@ -74,13 +73,11 @@ public class Segitiga {
                     System.out.println("SEGITIGA BEBAS (FREE TRIANGLE)");
                 }
             }
-
             System.out.println("\t---------------------------------------------------\n");
             System.out.print("\tIngin mencoba angka lain? (y/n): ");
             String jawab = in.nextLine().trim();
             ulangi = jawab.isEmpty() ? 'n' : jawab.charAt(0);
         }
-
         System.out.println("\n\tTerima kasih telah menggunakan program ini!\n");
         in.close();
     }
