@@ -1,0 +1,33 @@
+BEGIN
+
+    RECEIVE nomor_pengirim
+    RECEIVE nomor_penerima
+    RECEIVE nominal_transfer
+
+    GET saldo_pengirim
+    GET data_penerima
+
+    CALCULATE biaya_admin
+        biaya_admin = Rp1.000
+
+    CALCULATE total_potongan
+        total_potongan =
+        nominal_transfer + biaya_admin
+
+    REDUCE saldo_pengirim
+        BY total_potongan
+
+    ADD nominal_transfer
+        TO saldo_penerima
+
+    SAVE transaction
+
+    GENERATE ID transaksi
+
+    DISPLAY "Transfer pulsa berhasil"
+
+    DISPLAY ID transaksi
+
+    DISPLAY saldo_pengirim setelah transfer
+
+END
